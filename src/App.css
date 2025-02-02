@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding: 20px;
 }
 
 .App-logo {
@@ -35,4 +36,400 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.survey-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 4px;
+  animation: fadeIn 0.5s ease-in;
+  opacity: 1;
+}
+
+button {
+  margin: 5px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease-in;
+  opacity: 1;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.survey-complete {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 50px;
+  color: #28a745;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 30px;
+  margin: 0;
+}
+
+h3 {
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.next-button-container {
+  margin-top: 30px;
+  animation: fadeIn 0.5s ease-in;
+  opacity: 1;
+}
+
+.next-button {
+  background-color: #28a745;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.next-button:hover {
+  background-color: #218838;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navigation-buttons {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.previous-button {
+  position: absolute;
+  left: 0;
+  background-color: #6c757d;
+}
+
+.previous-button:hover {
+  background-color: #5a6268;
+}
+
+.nav-button {
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.demographics-section {
+  text-align: left;
+}
+
+.demo-button {
+  margin: 5px;
+  padding: 8px 16px;
+  background-color: #f8f9fa;
+  color: #212529;
+  border: 1px solid #dee2e6;
+}
+
+.demo-button.selected {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
+}
+
+.age-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.age-input input {
+  width: 100px;
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.age-input span {
+  font-size: 18px;
+  color: #333;
+}
+
+.etc-input {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.start-survey-button {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 30px auto;
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.start-survey-button:hover {
+  background-color: #218838;
+}
+
+.competency-intro {
+  text-align: left;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.competency-intro ol {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.competency-intro li {
+  margin: 10px 0;
+}
+
+.competency-section {
+  margin-top: 30px;
+}
+
+.competency-question {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.score-labels {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 0 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.score-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  position: relative;
+}
+
+.score-buttons::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #dee2e6;
+  z-index: 0;
+}
+
+.score-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid #dee2e6;
+  color: #666;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+
+.score-button.selected {
+  background-color: #007bff;
+  border-color: #0056b3;
+  color: white;
+}
+
+.score-button:hover {
+  transform: scale(1.1);
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.intro-container {
+  text-align: left;
+}
+
+.intro-content {
+  line-height: 1.8;
+  color: #333;
+}
+
+.intro-content p {
+  margin-bottom: 15px;
+  white-space: pre-line;
+}
+
+.researcher-info {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.researcher-section {
+  margin-bottom: 20px;
+}
+
+.researcher-section:last-child {
+  margin-bottom: 0;
+}
+
+.researcher-section h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #007bff;
+}
+
+.researcher-section p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.additional-questions {
+  margin-top: 20px;
+}
+
+.additional-questions .competency-question {
+  margin-bottom: 20px;
+}
+
+.additional-questions h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.expectation-intro {
+  text-align: left;
+  margin-bottom: 30px;
+  line-height: 1.8;
+  color: #333;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.expectation-questions {
+  margin-top: 20px;
+}
+
+.score-descriptions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 0 10px;
+  color: #666;
+  font-size: 12px;
+}
+
+.score-descriptions span {
+  text-align: center;
+  width: 20%;
+}
+
+.final-page {
+  text-align: left;
+  line-height: 1.6;
+}
+
+.contact-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.contact-input {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.highlight {
+  color: #007bff;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.interview-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 30px 0;
+}
+
+.interview-section h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.interview-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.thank-you {
+  text-align: center;
+  font-size: 18px;
+  margin: 30px 0;
+  color: #28a745;
 }
