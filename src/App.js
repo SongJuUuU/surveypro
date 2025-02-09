@@ -5,7 +5,7 @@ function App() {
   const programs = [
     "멘토링 프로그램", "재학생 취업 현황 조사", "취업 설명회 및 공고 게시", "RC 101 - 재학생 및 졸업생 간담회",
     "연세 의·치·간 Bio & Medical Idea Fair", "국제 교류 프로그램 대학 및 간호대학 동아리 활동", "간호대학 동아리 활동", "졸업생 홈커밍 데이 및 취업 현황 조사",
-    "복수전공", "연계전공", "부전공 설명회", "진로관련 소규모 세미나"
+    "복수전공, 연계전공, 부전공 설명회", "진로관련 소규모 세미나"
   ];
 
   const [responses, setResponses] = useState({});
@@ -220,7 +220,7 @@ function App() {
       [field]: value
     }));
   };
-
+// 코드에디팅 바이 네오빔
   const handleCompetencyChange = (type, score) => {
     setCompetencyScores(prev => ({
       ...prev,
@@ -275,7 +275,7 @@ function App() {
     }
     setCurrentPage('expectationScale');
   };
-
+//히히 지금 nvim으로 작성하고 있지롱
   const handleFinalResponse = (questionNumber, score) => {
     setFinalResponses(prev => ({
       ...prev,
@@ -342,118 +342,116 @@ function App() {
         return (
           <div className="App">
             <div className="survey-container intro-container">
-              <h2>대상자 설명문</h2>
+              <h2 style={{ textAlign: 'center' }}>대상자 설명문</h2>
               <div className="research-sections">
                 <section>
-                  <h3>연구 제목</h3>
-                  <p>'커리어 연세간호' 고도화 프로그램 개발을 위한 학생 진로 결정 요인 및 요구도 조사</p>
+                  <h3 style={{ textAlign: 'center' }}>연구 제목</h3>
+                  <p style={{ textAlign: 'center' }}>'커리어 연세간호' 고도화 프로그램 개발을 위한 학생 진로 결정 요인 및 요구도 조사</p>
                   
-                  <h3>연구 책임자</h3>
-                  <p>연세대학교 간호대학 부교수 김희정</p>
-
-                  <p className="intro-description">
+                  
+                  <p className="intro-description" style={{ textAlign: 'left' }}>
                     이 설명문은 이 연구에 대한 귀하의 이해를 돕기 위해 마련된 것이고, 이 연구에 대한 자세한 내용을 담고 있으니 
                     이 설명문을 읽고 충분히 이해하고 생각하신 후에 참여 여부를 결정해주시기 바랍니다. 
                     원하시는 경우 가족이나 그 외의 사람들과 의논하셔도 됩니다.
                   </p>
 
-                  <p>
+                  <p style={{ textAlign: 'left' }}>
                     귀하께서 자발적으로 동의하여 동의서를 작성하시는 경우에 연구에 참여하실 수 있으며 귀하께서는 이 연구에 참여하지 않기로 결정할 수도 있습니다. 
                     참여하지 않기로 결정하더라도 귀하께서 받게 될 치료에 아무런 영향을 주지 않을 것이며 그 외에 어떠한 불이익도 없을 것입니다.
                   </p>
                 </section>
 
                 <section>
-                  <h3>1. 임상 연구 배경 및 목적</h3>
-                  <p>4차 산업시대와 다변화된 의료시장의 확대로 전반적인 의료의 질 향상 및 다층적 보건의료 대응의 필요성을 증대시키고, 전문 의료서비스와 돌봄 서비스 수요를 증가시킴에 따라, 간호사에 대한 사회적 기대 또한 높아지고 있습니다. 특히 다양한 건강요구에 대응할 수 있는 역량을 갖추고 디지털 기술을 활용한 학습 과정을 통해 지식과 기술을 습득할 수 있는 간호 인재 양성이 필수적입니다. 간호대학생이 미래 사회 역량 있는 구성원이자 리더로서 성장할 기회를 제공하기 위해 고도화된 진로지도 프로그램이 필요합니다. 이에 본 연구는 연세대학교 간호대학의 진로지도 프로그램에 대한 참여 경험 및 요구도를 탐색하여 효과적인 진로지도 개선 방안을 마련하고자 합니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>1. 임상 연구 배경 및 목적</h3>
+                  <p style={{ textAlign: 'left' }}>4차 산업시대와 다변화된 의료시장의 확대로 전반적인 의료의 질 향상 및 다층적 보건의료 대응의 필요성을 증대시키고, 전문 의료서비스와 돌봄 서비스 수요를 증가시킴에 따라, 간호사에 대한 사회적 기대 또한 높아지고 있습니다. 특히 다양한 건강요구에 대응할 수 있는 역량을 갖추고 디지털 기술을 활용한 학습 과정을 통해 지식과 기술을 습득할 수 있는 간호 인재 양성이 필수적입니다. 간호대학생이 미래 사회 역량 있는 구성원이자 리더로서 성장할 기회를 제공하기 위해 고도화된 진로지도 프로그램이 필요합니다. 이에 본 연구는 연세대학교 간호대학의 진로지도 프로그램에 대한 참여 경험 및 요구도를 탐색하여 효과적인 진로지도 개선 방안을 마련하고자 합니다.</p>
                 </section>
 
                 <section>
-                  <h3>2. 임상연구에 참여하는 대상자 수 및 참여 기간</h3>
-                  <p>이 연구는 연세대학교 간호대학에서 주관하고, 연구진행도 연세대학교 간호대학생을 대상으로 이루어집니다. 총 255명이 참여할 예정이고, 연구 기간은 세브란스병원 연구심의의원회 승인 후부터 2025년 10월 31일까지입니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>2. 임상연구에 참여하는 대상자 수 및 참여 기간</h3>
+                  <p style={{ textAlign: 'left' }}>이 연구는 연세대학교 간호대학에서 주관하고, 연구진행도 연세대학교 간호대학생을 대상으로 이루어집니다. 총 255명이 참여할 예정이고, 연구 기간은 세브란스병원 연구심의의원회 승인 후부터 2025년 10월 31일까지입니다.</p>
                 </section>
 
                 <section>
-                  <h3>3. 임상연구의 절차 및 방법</h3>
-                  <p>귀하께서 본 연구에 참여하시기로 결정하셨다면, 대상자 동의서 양식에 서명하시게 됩니다. 동의서에 서명하신 이후에, 연구자는 귀하의 일반적 특성, 진로결정 자기효능감, 결과기대척도, 진로준비행동, 본인이 참여한 진도지도 프로그램의 인지 여부, 참여 여부, 만족도 등에 대한 설문을 하게 됩니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>3. 임상연구의 절차 및 방법</h3>
+                  <p style={{ textAlign: 'left' }}>귀하께서 본 연구에 참여하시기로 결정하셨다면, 대상자 동의서 양식에 서명하시게 됩니다. 동의서에 서명하신 이후에, 연구자는 귀하의 일반적 특성, 진로결정 자기효능감, 결과기대척도, 진로준비행동, 본인이 참여한 진도지도 프로그램의 인지 여부, 참여 여부, 만족도 등에 대한 설문을 하게 됩니다.</p>
                 </section>
 
                 <section>
-                  <h3>4. 임상연구에 참여하여 기대할 수 있는 이익</h3>
-                  <p>귀하의 본 연구 참여는 학점과 관련된 직접적인 이익은 없으나 궁극적으로 귀하의 참여는 효과적인 진로지도 프로그램을 개발하는데 큰 도움이 되며, 연세대학교 간호대학의 학생들이 미래 간호인력과 리더로서 성장하기 위한 시스템 구축에 기여할 것입니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>4. 임상연구에 참여하여 기대할 수 있는 이익</h3>
+                  <p style={{ textAlign: 'left' }}>귀하의 본 연구 참여는 학점과 관련된 직접적인 이익은 없으나 궁극적으로 귀하의 참여는 효과적인 진로지도 프로그램을 개발하는데 큰 도움이 되며, 연세대학교 간호대학의 학생들이 미래 간호인력과 리더로서 성장하기 위한 시스템 구축에 기여할 것입니다.</p>
                 </section>
 
                 <section>
-                  <h3>5. 임상연구에 참여하여 예상되는 위험 및 불편</h3>
-                  <p>설문지 작성을 위한 약 20 분 정도의 시간적 부담이 있을 수 있으나, 그 외의 연구와 관련된 큰 불편감 및 예상되는 위험성은 없습니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>5. 임상연구에 참여하여 예상되는 위험 및 불편</h3>
+                  <p style={{ textAlign: 'left' }}>설문지 작성을 위한 약 20 분 정도의 시간적 부담이 있을 수 있으나, 그 외의 연구와 관련된 큰 불편감 및 예상되는 위험성은 없습니다.</p>
                 </section>
 
                 <section>
-                  <h3>6. 임상연구 참여에 따른 비용</h3>
-                  <p>본 연구는 조사연구로 연구참여로 인한 비용이 발생하지 않습니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>6. 임상연구 참여에 따른 비용</h3>
+                  <p style={{ textAlign: 'left' }}>본 연구는 조사연구로 연구참여로 인한 비용이 발생하지 않습니다.</p>
                 </section>
 
                 <section>
-                  <h3>7. 임상연구 참여에 따른 사례비</h3>
-                  <p>귀하가 설문조사에 참여하여 협조해주신 것에 대한 감사의 마음으로 5,000원 상당의 모바일 쿠폰을 드립니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>7. 임상연구 참여에 따른 사례비</h3>
+                  <p style={{ textAlign: 'left' }}>귀하가 설문조사에 참여하여 협조해주신 것에 대한 감사의 마음으로 5,000원 상당의 모바일 쿠폰을 드립니다.</p>
                 </section>
 
                 <section>
-                  <h3>8. 연구와 관련한 손상이 발생한 경우, 대상자에게 주어질 보상이나 치료방법</h3>
-                  <p>설문조사에 참여하기 위해 시간이 소요되는 불편이 있지만, 그 외의 침습적인 검사는 없기 때문에 연구와 관련된 신체적 불편감 및 예상되는 위험성은 없을 것입니다. 다만, 설문지 작성으로 인한 심리적 피로감 발생 시, 즉시 어떠한 불이익 없이 중단하실 수 있습니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>8. 연구와 관련한 손상이 발생한 경우, 대상자에게 주어질 보상이나 치료방법</h3>
+                  <p style={{ textAlign: 'left' }}>설문조사에 참여하기 위해 시간이 소요되는 불편이 있지만, 그 외의 침습적인 검사는 없기 때문에 연구와 관련된 신체적 불편감 및 예상되는 위험성은 없을 것입니다. 다만, 설문지 작성으로 인한 심리적 피로감 발생 시, 즉시 어떠한 불이익 없이 중단하실 수 있습니다.</p>
                 </section>
 
                 <section>
-                  <h3>9. 새로운 정보 제공 여부</h3>
-                  <p>본 연구는 20분 정도가 소요되는 1회의 설문조사로 귀하에게 영향을 줄 수 있는 새로운 정보는 없을 것입니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>9. 새로운 정보 제공 여부</h3>
+                  <p style={{ textAlign: 'left' }}>본 연구는 20분 정도가 소요되는 1회의 설문조사로 귀하에게 영향을 줄 수 있는 새로운 정보는 없을 것입니다.</p>
                 </section>
 
                 <section>
-                  <h3>10. 대상자가 준수하여야 하는 사항</h3>
-                  <p>본 연구는 20분 정도가 소요되는 1회의 설문조사로 모든 문항에 응답이 필요합니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>10. 대상자가 준수하여야 하는 사항</h3>
+                  <p style={{ textAlign: 'left' }}>본 연구는 20분 정도가 소요되는 1회의 설문조사로 모든 문항에 응답이 필요합니다.</p>
                 </section>
 
                 <section>
-                  <h3>11. 임상연구 참여에서의 중도 탈락</h3>
-                  <p>본 연구는 20분 정도가 소요되는 1회의 설문조사로 귀하가 원할 시 언제라도 연구 참여를 그만 둘 수 있습니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>11. 임상연구 참여에서의 중도 탈락</h3>
+                  <p style={{ textAlign: 'left' }}>본 연구는 20분 정도가 소요되는 1회의 설문조사로 귀하가 원할 시 언제라도 연구 참여를 그만 둘 수 있습니다.</p>
                 </section>
 
                 <section>
-                  <h3>12. 정보 수집 및 제공</h3>
-                  <p>본 동의서에 서명함으로써 귀하는 연구진이 귀하의 개인(민감)정보를 수집하고 사용하는데 동의하게 됩니다.</p>
-                  <p className="highlight">※ 자세한 사항은 아래 내용을 참조하여 주십시오.</p>
+                  <h3 style={{ textAlign: 'left' }}>12. 정보 수집 및 제공</h3>
+                  <p style={{ textAlign: 'left' }}>본 동의서에 서명함으로써 귀하는 연구진이 귀하의 개인(민감)정보를 수집하고 사용하는데 동의하게 됩니다.</p>
+                  <p className="highlight" style={{ textAlign: 'left' }}>※ 자세한 사항은 아래 내용을 참조하여 주십시오.</p>
                   
                   <div className="info-details">
-                    <h4>개인(민감)정보의 수집∙이용 목적</h4>
-                    <p>전화번호는 모바일 쿠폰 발송을 위해서만 수집되며 연구 종료 시, 즉시 파기됩니다. 그 외 개인정보는 연구 결과 분석을 위해서만 사용됩니다.</p>
+                    <h4 style={{ textAlign: 'left' }}>개인(민감)정보의 수집∙이용 목적</h4>
+                    <p style={{ textAlign: 'left' }}>전화번호는 모바일 쿠폰 발송을 위해서만 수집되며 연구 종료 시, 즉시 파기됩니다. 그 외 개인정보는 연구 결과 분석을 위해서만 사용됩니다.</p>
                     
-                    <h4>수집하려는 개인(민감)정보 항목</h4>
-                    <p>개인정보: 전화번호, 성별, 학년, 학업 성적, 가족경제수준</p>
-                    <p>민감정보: 해당 없음.</p>
+                    <h4 style={{ textAlign: 'left' }}>수집하려는 개인(민감)정보 항목</h4>
+                    <p style={{ textAlign: 'left' }}>개인정보: 전화번호, 성별, 학년, 학업 성적, 가족경제수준</p>
+                    <p style={{ textAlign: 'left' }}>민감정보: 해당 없음.</p>
                   </div>
                 </section>
 
                 <section>
-                  <h3>13. 개인정보 및 기록에 대한 비밀보장</h3>
-                  <p>귀하가 이 연구에 참여하는 동안에 수집되는 귀하의 기록은 비밀로 보장될 것이며, 연구의 결과가 보고서로 작성되거나 출판, 또는 발표되는 경우에도 귀하의 신원을 파악할 수 있는 기록은 비밀 상태로 유지될 것입니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>13. 개인정보 및 기록에 대한 비밀보장</h3>
+                  <p style={{ textAlign: 'left' }}>귀하가 이 연구에 참여하는 동안에 수집되는 귀하의 기록은 비밀로 보장될 것이며, 연구의 결과가 보고서로 작성되거나 출판, 또는 발표되는 경우에도 귀하의 신원을 파악할 수 있는 기록은 비밀 상태로 유지될 것입니다.</p>
                 </section>
 
                 <section>
-                  <h3>14. 참여/철회의 자발성</h3>
-                  <p>귀하는 언제든지 연구참여에 대해 동의를 철회할 수 있으며, 이 경우 연구참여는 종료되고 연구진은 귀하에게 연구와 관련하여 추가적인 정보를 수집하지 않을 것입니다.</p>
+                  <h3 style={{ textAlign: 'left' }}>14. 참여/철회의 자발성</h3>
+                  <p style={{ textAlign: 'left' }}>귀하는 언제든지 연구참여에 대해 동의를 철회할 수 있으며, 이 경우 연구참여는 종료되고 연구진은 귀하에게 연구와 관련하여 추가적인 정보를 수집하지 않을 것입니다.</p>
                 </section>
 
                 <section>
-                  <h3>15. 연락처</h3>
-                  <p>이 연구에 관하여 궁금한 점이 있거나 연구와 관련이 있는 상해가 발생한 경우에는 아래의 연구자에게 연락하여 주십시오.</p>
-                  <div className="contact-info">
+                  <h3 style={{ textAlign: 'left' }}>15. 연락처</h3>
+                  <p style={{ textAlign: 'left' }}>이 연구에 관하여 궁금한 점이 있거나 연구와 관련이 있는 상해가 발생한 경우에는 아래의 연구자에게 연락하여 주십시오.</p>
+                  <div className="contact-info" style={{ textAlign: 'left' }}>
                     <p>연구담당자:</p>
                     <p>신유미 (YUSHIN23@yuhs.ac, 02-2228-3358)</p>
                     <p>연구 책임자:</p>
                     <p>김희정 (HKIM80@yuhs.ac, 02-2228-3273)</p>
                   </div>
                   
-                  <div className="additional-contacts">
+                  <div className="additional-contacts" style={{ textAlign: 'left' }}>
                     <p>대상자로서 귀하의 권리에 대하여 질문이 있는 경우에는 연구자에게 말씀하시거나 다음의 번호로 문의하실 수 있습니다.</p>
                     <p>세브란스병원 연구심의위원회 ☎ 02-2228-0430~4</p>
                     <p>세브란스병원 임상연구보호센터 ☎ 02-2228-0450~4</p>
@@ -954,8 +952,8 @@ function App() {
 
                 <div className="current-program">
                   <h3>{programs[currentProgram]}</h3>
-                  <div className="question">
-                    <h3>{programs[currentProgram]}에 대해서 알고계십니까?</h3>
+                  <div className="question" style={{ textAlign: 'center' }}>
+                    <h3 style={{ textAlign: 'center' }}>{programs[currentProgram]}에 대해서 <br /> 알고계십니까?</h3>
                     <button 
                       className={responses[programs[currentProgram]]?.knows === "네" ? 'selected' : ''}
                       onClick={() => handleKnowledgeResponse("네")}
@@ -967,8 +965,8 @@ function App() {
                   </div>
 
                   {responses[programs[currentProgram]]?.knows === "네" && (
-                    <div className="question">
-                      <h3>{programs[currentProgram]}에 참여해보신적이 있으십니까?</h3>
+                    <div className="question" style={{ textAlign: 'center' }}>
+                      <h3 style={{ textAlign: 'center' }}>{programs[currentProgram]}에 <br />참여해보신적이 있으십니까?</h3>
                       <button 
                         className={responses[programs[currentProgram]]?.participated === "네" ? 'selected' : ''}
                         onClick={() => handleParticipationResponse("네")}
@@ -982,8 +980,8 @@ function App() {
 
                   {responses[programs[currentProgram]]?.knows === "네" && 
                     responses[programs[currentProgram]]?.participated === "네" && (
-                    <div className="question">
-                      <h3>{programs[currentProgram]}에 대한 만족도를 선택해주세요.</h3>
+                    <div className="question" style={{ textAlign: 'center' }}>
+                      <h3 style={{ textAlign: 'center' }}>{programs[currentProgram]}에 대한 <br />만족도를 선택해주세요.</h3>
                       <div className="score-labels">
                         <span>매우 불만족</span>
                         <span>보통</span>
@@ -1005,8 +1003,8 @@ function App() {
 
                   {responses[programs[currentProgram]]?.knows === "네" && 
                     responses[programs[currentProgram]]?.participated === "아니오" && (
-                    <div className="question">
-                      <h3>왜 참여하지 않으셨나요?</h3>
+                    <div className="question" style={{ textAlign: 'center' }}>
+                      <h3 style={{ textAlign: 'center' }}>왜 참여하지 않으셨나요?</h3>
                       <button 
                         className={responses[programs[currentProgram]]?.nonParticipationReason === "시간이 없어서" ? 'selected' : ''}
                         onClick={() => handleNonParticipationReason("시간이 없어서")}

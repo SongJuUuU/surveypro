@@ -39,12 +39,13 @@
 }
 
 .survey-container {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f5f5f5;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
 }
 
 .question {
@@ -96,6 +97,14 @@ h2 {
 h3 {
   color: #444;
   margin-bottom: 15px;
+  text-align: left;
+}
+
+
+
+/* 연구 설명문의 첫 번째 섹션의 h3는 왼쪽 정렬 유지 */
+.research-sections section:first-child h3 {
+  text-align: left;
 }
 
 .next-button-container {
@@ -136,6 +145,7 @@ h3 {
   align-items: center;
   margin-bottom: 30px;
   position: relative;
+  text-align: center;
 }
 
 .navigation-buttons h2 {
@@ -294,6 +304,7 @@ h3 {
   padding: 0 10px;
   color: #666;
   font-size: 14px;
+  text-align: center;
 }
 
 .score-buttons {
@@ -301,6 +312,7 @@ h3 {
   justify-content: space-between;
   margin: 20px 0;
   position: relative;
+  text-align: center;
 }
 
 .score-buttons::before {
@@ -345,6 +357,7 @@ h3 {
 
 .research-sections {
   margin-top: 20px;
+  text-align: left;
 }
 
 .research-sections section {
@@ -354,6 +367,7 @@ h3 {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   position: relative;
+  text-align: left;
 }
 
 .research-sections h3 {
@@ -365,7 +379,7 @@ h3 {
   background-color: #f8f9fa;
   border-bottom: 2px solid #e9ecef;
   border-radius: 8px 8px 0 0;
-  text-align: center;
+  text-align: left;
 }
 
 .research-sections section:first-child h3 {
