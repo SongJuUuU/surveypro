@@ -111,6 +111,8 @@ h3 {
   margin-top: 30px;
   animation: fadeIn 0.5s ease-in;
   opacity: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .next-button {
@@ -121,6 +123,8 @@ h3 {
   padding: 12px 30px;
   min-width: 200px;
   transition: all 0.3s ease;
+  margin: 0 auto;
+  display: block;
 }
 
 .next-button:hover {
@@ -634,20 +638,62 @@ h3 {
 
 .interview-section {
   background-color: white;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 30px;
+  border-radius: 12px;
   margin: 30px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .interview-section h3 {
-  color: #333;
-  margin-bottom: 15px;
+  color: #007bff;
+  font-size: 1.3em;
+  font-weight: 600;
+  padding: 15px;
+  margin: -30px -30px 20px -30px;
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #e9ecef;
+  border-radius: 12px 12px 0 0;
+}
+
+.interview-section p {
+  line-height: 1.8;
+  color: #444;
+  font-size: 1.05em;
+  margin-bottom: 20px;
+}
+
+.interview-section p:last-of-type {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #28a745;
+  margin-top: 25px;
+  font-weight: 500;
 }
 
 .interview-buttons {
-  margin-top: 15px;
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.interview-buttons button {
+  min-width: 120px;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  transition: all 0.3s ease;
+}
+
+.interview-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.interview-buttons .demo-button.selected {
+  background-color: #007bff;
+  color: white;
+  border-color: #0056b3;
 }
 
 .thank-you {
@@ -824,4 +870,98 @@ h3 {
   gap: 10px;
   justify-content: center;
   margin-top: 15px;
+}
+
+.date-selection-container {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.date-selection h4,
+.alternative-date-section h4,
+.contact-email-section h4 {
+  color: #007bff;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.date-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.date-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05em;
+  color: #444;
+}
+
+.date-options input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.alternative-date-section {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid #e9ecef;
+}
+
+.alternative-date-section p {
+  color: #666;
+  margin-bottom: 12px;
+  font-size: 0.95em;
+}
+
+.alternative-date-section textarea,
+.contact-email-section input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-size: 1em;
+  margin-top: 8px;
+}
+
+.alternative-date-section textarea:focus,
+.contact-email-section input:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.contact-email-section {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid #e9ecef;
+}
+
+.thank-you-message {
+  margin-top: 50px;
+  padding-top: 50px;
+  border-top: 1px solid #e9ecef;
+  text-align: left;
+}
+
+.thank-you-message p {
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-size: 1.05em;
+}
+
+.thank-you-message .signature {
+  color: #000;
+  font-weight: 500;
+  margin-top: 25px;
+  line-height: 1.6;
 }

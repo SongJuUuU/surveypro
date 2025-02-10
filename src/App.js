@@ -69,6 +69,12 @@ function App() {
     otherReason: ''
   });
 
+  const [selectedDates, setSelectedDates] = useState([]);
+
+  // 새로운 상태 추가
+  const [alternativeDate, setAlternativeDate] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
+
   const questions = {
     q1: [
       "1. 진로에 대한 고민이 있다.",
@@ -336,6 +342,16 @@ function App() {
     }));
   };
 
+  const handleDateSelection = (date) => {
+    setSelectedDates(prev => {
+      if (prev.includes(date)) {
+        return prev.filter(d => d !== date);
+      } else {
+        return [...prev, date];
+      }
+    });
+  };
+
   const renderPage = () => {
     switch(currentPage) {
       case 'explanation':
@@ -345,9 +361,10 @@ function App() {
               <h2 style={{ textAlign: 'center' }}>대상자 설명문</h2>
               <div className="research-sections">
                 <section>
-                  <h3 style={{ textAlign: 'center' }}>연구 제목</h3>
-                  <p style={{ textAlign: 'center' }}>'커리어 연세간호' 고도화 프로그램 개발을 위한 학생 진로 결정 요인 및 요구도 조사</p>
-                  
+                  <h3 style={{ display: 'inline-block', marginRight: '10px' }}>연구제목:</h3>
+                  <p style={{ display: 'inline-block' }}>
+                  '커리어 연세간호' 고도화 프로그램 개발을 위한 학생 진로 결정 요인 및 요구도 조사
+                  </p>
                   
                   <p className="intro-description" style={{ textAlign: 'left' }}>
                     이 설명문은 이 연구에 대한 귀하의 이해를 돕기 위해 마련된 것이고, 이 연구에 대한 자세한 내용을 담고 있으니 
@@ -398,7 +415,7 @@ function App() {
 
                 <section>
                   <h3 style={{ textAlign: 'left' }}>8. 연구와 관련한 손상이 발생한 경우, 대상자에게 주어질 보상이나 치료방법</h3>
-                  <p style={{ textAlign: 'left' }}>설문조사에 참여하기 위해 시간이 소요되는 불편이 있지만, 그 외의 침습적인 검사는 없기 때문에 연구와 관련된 신체적 불편감 및 예상되는 위험성은 없을 것입니다. 다만, 설문지 작성으로 인한 심리적 피로감 발생 시, 즉시 어떠한 불이익 없이 중단하실 수 있습니다.</p>
+                  <p style={{ textAlign: 'left' }}>설문조사에 참여하는 동안 시간적 부담이 있을 수 있으나, 침습적인 검사가 포함되지 않으므로 신체적 불편이나 연구와 관련된 심각한 위험은 예상되지 않습니다. 다만, 설문지 작성 중 심리적 피로감이 발생할 경우, 어떠한 불이익 없이 언제든지 연구 참여를 중단하실 수 있습니다. 본 연구 참여로 인해 발생할 수 있는 손실(시간 소모, 심리적 피로감 등)에 대한 별도의 금전적 보상이나 치료 지원은 제공되지 않습니다.</p>
                 </section>
 
                 <section>
@@ -433,12 +450,26 @@ function App() {
 
                 <section>
                   <h3 style={{ textAlign: 'left' }}>13. 개인정보 및 기록에 대한 비밀보장</h3>
-                  <p style={{ textAlign: 'left' }}>귀하가 이 연구에 참여하는 동안에 수집되는 귀하의 기록은 비밀로 보장될 것이며, 연구의 결과가 보고서로 작성되거나 출판, 또는 발표되는 경우에도 귀하의 신원을 파악할 수 있는 기록은 비밀 상태로 유지될 것입니다.</p>
+                  <p style={{ textAlign: 'left' }}>귀하가 이 연구에 참여하는 동안에 수집되는 귀하의 기록은 비밀로 보장될 것이며, 연구의 결과가 보고서로 작성되거나 출판, 또는 발표되는 경우에도 귀하의 신원을 파악할 수 있는 기록은 비밀 상태로 유지될 것입니다.
+                    <br />
+                    <br />
+
+                    귀하 또는 귀하의 대리인이 본 동의서에 서명함으로써, 귀하는 이 연구를 모니터/점검하는 자, 연구심의위원회, 관계 부처 (예: 보건복지부) 등이 귀하의 비밀 보장을 침해하지 않고 관련 규정이 정하는 범위 안에서 연구의 실시 절차와 자료의 신뢰성을 검증하기 위해 귀하의 의무기록을 열람하는 것에 대하여 동의하게 됩니다.
+                    <br />
+                    <br />
+
+                    연구 목적으로 수집된 개인정보는 나이, 성별, 학년, 학업 성적, 가족경제 수준입니다. 이 정보는 연구를 위해 3 년간 사용되며 수집된 정보는 개인정보보호법에 따라 적절히 관리됩니다. 관련정보는 열쇠로만 접근이 가능한 연구실 내 컴퓨터에 보관합니다. 수집된 1 차 자료는 즉시 코딩하여 파일로 보관 가능한 2 차 자료로 변환되어 연구 책임자의 컴퓨터에 보관될 것입니다. 이 컴퓨터는 연구책임자만 식별할 수 있는 암호를 입력하여 접근이 가능하며 각 데이터 파일도 비밀번호를 입력하여 접근할 수 있도록 하여 개인정보가 노출되지 않도록 관리할 것이며, 연구와 관련된 기록은 연구종료 후 3 년간 보관 후 컴퓨터의 포멧을 통해 폐기될 것입니다.
+                  </p>
                 </section>
 
                 <section>
                   <h3 style={{ textAlign: 'left' }}>14. 참여/철회의 자발성</h3>
-                  <p style={{ textAlign: 'left' }}>귀하는 언제든지 연구참여에 대해 동의를 철회할 수 있으며, 이 경우 연구참여는 종료되고 연구진은 귀하에게 연구와 관련하여 추가적인 정보를 수집하지 않을 것입니다.</p>
+                  <p style={{ textAlign: 'left' }}>귀하는 언제든지 연구 참여에 대한 동의를 철회할 수 있으며, 철회 시 연구 참여는 종료되고 연구진은 추가적인 정보를 수집하지 않습니다. 다만, 철회 이전에 수집된 정보는 연구 분석 및 결과 보고를 위해 익명 처리된 상태로 계속 활용될 수 있습니다.
+                    <br />
+                    만약 수집된 정보를 폐기하고 연구에 이용되지 않기를 원하신다면, 연구자에게 연락하여 의사를 전달해 주시기 바랍니다.
+                    <br />
+                    또한, 귀하는 본 연구에 참여하지 않을 자유가 있으며, 참여하지 않거나 중도 철회하더라도 어떠한 불이익도 발생하지 않습니다.
+                  </p>
                 </section>
 
                 <section>
@@ -474,7 +505,9 @@ function App() {
             <div className="survey-container intro-container">
               <div className="consent-form">
                 <h2>온라인 대상자 동의서</h2>
-                <h3>연구제목: '커리어 연세간호' 고도화 프로그램 개발을 위한 학생 진로 결정 요인 및 요구도 조사</h3>
+                <h3>
+                  연구제목: '커리어 연세간호' 고도화 프로그램 개발을 위한 학생 진로 결정 요인 및 요구도 조사
+                </h3>
                 
                 <p className="consent-notice">
                   ※ 본인은 충분한 시간을 갖고 생각한 결과, 다음을 이해하고 자발적으로 참여하는 것에 동의합니다.<br/>
@@ -1185,78 +1218,43 @@ function App() {
               <div className="navigation-buttons">
                 <button 
                   className="nav-button previous-button"
-                  onClick={handleFinalPagePrevious}
+                  onClick={() => setCurrentPage('careerBehavior')}
                 >
                   이전
                 </button>
-                <h2>설문 완료</h2>
+                <h2>추가 인터뷰 참여</h2>
               </div>
 
-              <div className="final-page">
-                <div className="contact-section">
-                  <p className="highlight">
-                    ★ 아래 연락처를 기입해주시는 분들께, 소정의 기프티콘(음료쿠폰 5천원)이 지급될 예정입니다. 
-                    연락처는 기프티콘 제공 이외의 목적으로 사용되지 않으며, 연구가 종료되면 안전하게 폐기됩니다.
-                  </p>
-                  <div className="contact-input">
-                    <span>연락처: </span>
-                    <input
-                      type="text"
-                      value={contactInfo}
-                      onChange={(e) => setContactInfo(e.target.value)}
-                      placeholder="연락처를 입력해주세요"
-                    />
-                  </div>
-                </div>
-
-                <p className="highlight">★★ 온라인 설문조사에 참여해 주셔서 감사합니다.</p>
-
-                <div className="interview-section">
-                  <h3>[연세대학교 간호대학 진로지도 경험 연구를 위한 집단 인터뷰 참여자 모집]</h3>
-                  <p>
-                    향후 연세대학교 간호대학생들의 진로 지도와 관련된 심층적인 경험을 탐구하기 위해 
-                    집단 인터뷰를 시행할 예정입니다. 집단 인터뷰에 참여하셔서 귀하의 소중한 경험과 
-                    의견을 나누어 주시면 연구에 큰 도움이 될 것입니다.
-                  </p>
-                  <p>
-                    집단 인터뷰에 참여를 원하십니까? (추가 사례금을 지급해드리며, 인터뷰에 대한 
-                    설명을 들으신 후에 참여 의향을 철회하셔도 됩니다.)
-                  </p>
-                  <div className="interview-buttons">
-                    <button
-                      className={`demo-button ${wantInterview === true ? 'selected' : ''}`}
-                      onClick={() => setWantInterview(true)}
-                    >네</button>
-                    <button
-                      className={`demo-button ${wantInterview === false ? 'selected' : ''}`}
-                      onClick={() => setWantInterview(false)}
-                    >아니요</button>
-                  </div>
+              <div className="interview-section">
+                <h3 style={{ textAlign: 'center' }}>[연세대학교 간호대학 진로지도 경험 연구를 위한 집단 인터뷰 참여자 모집]</h3>
+                <p>
+                  향후 연세대학교 간호대학생들의 진로 지도와 관련된 심층적인 경험을 탐구하기 위해 
+                  집단 인터뷰를 시행할 예정입니다. 집단 인터뷰에 참여하셔서 귀하의 소중한 경험과 
+                  의견을 나누어 주시면 연구에 큰 도움이 될 것입니다.
+                </p>
+                <p>
+                  집단 인터뷰에 참여를 원하십니까? 
+                  <br />
+                  (추가 사례금을 지급해드리며, 인터뷰에 대한 
                   
-                  {wantInterview === true && (
-                    <div className="interview-email">
-                      <p>연락 가능한 이메일 주소를 입력해주세요:</p>
-                      <input
-                        type="email"
-                        value={interviewEmail}
-                        onChange={(e) => setInterviewEmail(e.target.value)}
-                        placeholder="이메일 주소를 입력해주세요"
-                      />
-                    </div>
-                  )}
+                  설명을 들으신 후에 참여 의향을 철회하셔도 됩니다.)
+                </p>
+                <div className="interview-buttons">
+                  <button
+                    className={`demo-button ${wantInterview === true ? 'selected' : ''}`}
+                    onClick={() => {
+                      setWantInterview(true);
+                      setCurrentPage('additionalSurvey');
+                    }}
+                  >네</button>
+                  <button
+                    className={`demo-button ${wantInterview === false ? 'selected' : ''}`}
+                    onClick={() => {
+                      setWantInterview(false);
+                      setCurrentPage('surveyComplete');
+                    }}
+                  >아니요</button>
                 </div>
-
-                <p className="thank-you">설문에 응답해 주셔서 감사합니다.</p>
-
-                <button 
-                  className="start-survey-button"
-                  onClick={() => {
-                    alert('설문이 완료되었습니다. 참여해주셔서 감사합니다.');
-                    // 여기에 최종 제출 로직 추가
-                  }}
-                >
-                  최종 제출
-                </button>
               </div>
             </div>
           </div>
@@ -1458,6 +1456,150 @@ function App() {
                 >
                   다음
                 </button>
+              </div>
+            </div>
+          </div>
+        );
+      case 'additionalSurvey':
+        return (
+          <div className="App">
+            <div className="survey-container">
+              <div className="navigation-buttons">
+                <button 
+                  className="nav-button previous-button"
+                  onClick={() => setCurrentPage('finalPage')}
+                >
+                  이전
+                </button>
+                <h2>온라인 초점집단면담 일정 확인</h2>
+              </div>
+
+              <div className="program-intro">
+                <p>
+                  안녕하세요.
+                  <br />
+                  연구에 참여해 주셔서 감사합니다.
+                  <br />
+                  <br />
+                  아래 일정 중 오후 6:00~7:30에 진행될 온라인 초점집단 면담에 참석 가능하신 날짜를 선택해 주세요.                 
+                </p>
+                
+                <div className="date-selection-container">
+                  <div className="date-selection">
+                    <h4>참석 가능 날짜 선택 (복수 선택 가능)</h4>
+                    <div className="date-options" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={selectedDates.includes('2025-02-24')}
+                          onChange={() => handleDateSelection('2025-02-24')}
+                        />
+                        2025년 2월 24일 (월)
+                      </label>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={selectedDates.includes('2025-02-25')} 
+                          onChange={() => handleDateSelection('2025-02-25')}
+                        />
+                        2025년 2월 25일 (화)
+                      </label>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={selectedDates.includes('2025-02-26')}
+                          onChange={() => handleDateSelection('2025-02-26')}
+                        />
+                        2025년 2월 26일 (수)
+                      </label>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={selectedDates.includes('2025-02-27')}
+                          onChange={() => handleDateSelection('2025-02-27')}
+                        />
+                        2025년 2월 27일 (목)
+                      </label>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={selectedDates.includes('2025-02-28')}
+                          onChange={() => handleDateSelection('2025-02-28')}
+                        />
+                        2025년 2월 28일 (금)
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className="alternative-date-section">
+                    <h4>대체 일정 제안</h4>
+                    <p>위 날짜 중 참석이 어려운 경우, 가능한 일정이 있으면 작성해 주세요.</p>
+                    <textarea
+                      value={alternativeDate}
+                      onChange={(e) => setAlternativeDate(e.target.value)}
+                      placeholder="예: 3월 1일 오후 2시~3시 30분"
+                      rows="2"
+                    />
+                  </div>
+
+                  <div className="contact-email-section">
+                    <h4>연락 가능한 이메일 주소</h4>
+                    <input
+                      type="email"
+                      value={contactEmail}
+                      onChange={(e) => setContactEmail(e.target.value)}
+                      placeholder="이메일 주소를 입력해주세요"
+                    />
+                  </div>
+
+                  <div>
+                    <p style={{fontSize: '1.05em'}}>
+                      <br />
+                      <br />
+
+                      일정이 확정되면 다시 안내해 드리겠습니다.
+                      <br />
+                      다시 한 번 연구에 참여해 주셔서 감사합니다.
+                    </p>
+                    
+                    <p className="signature" style={{fontSize: '1.05em'}}>
+                    <br />
+
+
+                      감사합니다.
+                      <br />
+                      연구팀 드림
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <button 
+                className="start-survey-button"
+                onClick={() => {
+                  if (selectedDates.length === 0 && !alternativeDate) {
+                    alert('참석 가능한 날짜를 선택하거나 대체 일정을 제안해주세요.');
+                    return;
+                  }
+                  if (!contactEmail) {
+                    alert('연락 가능한 이메일 주소를 입력해주세요.');
+                    return;
+                  }
+                  setCurrentPage('surveyComplete');
+                }}
+              >
+                제출하기
+              </button>
+            </div>
+          </div>
+        );
+      case 'surveyComplete':
+        return (
+          <div className="App">
+            <div className="survey-container">
+              <div className="thank-you">
+                <h2>설문에 참여해 주셔서 감사합니다.</h2>
+                <p>소중한 의견을 연구에 반영하도록 하겠습니다.</p>
               </div>
             </div>
           </div>
