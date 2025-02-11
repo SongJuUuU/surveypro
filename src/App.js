@@ -849,7 +849,7 @@ function App() {
 
                 <div className="question">
                   <h3>4. 입학 과정</h3>
-                  {['정시 입학', '수시 입학', '학사 편입'].map(type => (
+                  {['정시 입학', '수시 입학', '학사/일반 편입'].map(type => (
                     <button
                       key={type}
                       className={`demo-button ${personalInfo.admissionType === type ? 'selected' : ''}`}
@@ -947,7 +947,9 @@ function App() {
                   <h3>1. 치료적 돌봄을 제공하는 간호사</h3>
                   <div className="score-labels">
                     <span>매우 부족함</span>
+                    <span>약간 부족함</span>
                     <span>보통임</span>
+                    <span>약간 충분함</span>
                     <span>매우 충분함</span>
                   </div>
                   <div className="score-buttons">
@@ -967,7 +969,9 @@ function App() {
                   <h3>2. 창의융합적 건강전문가</h3>
                   <div className="score-labels">
                     <span>매우 부족함</span>
+                    <span>약간 부족함</span>
                     <span>보통임</span>
+                    <span>약간 충분함</span>
                     <span>매우 충분함</span>
                   </div>
                   <div className="score-buttons">
@@ -987,7 +991,9 @@ function App() {
                   <h3>3. 변화를 이끄는 글로벌 리더</h3>
                   <div className="score-labels">
                     <span>매우 부족함</span>
+                    <span>약간 부족함</span>
                     <span>보통임</span>
+                    <span>약간 충분함</span>
                     <span>매우 충분함</span>
                   </div>
                   <div className="score-buttons">
@@ -1175,7 +1181,11 @@ function App() {
                   <div key={index} className="competency-question">
                     <h3>{index + 1}. {question}</h3>
                     <div className="score-labels">
-                    
+                      <span>매우 적음</span>
+                      <span>대체로 적은 편</span>
+                      <span>보통 정도</span>
+                      <span>대체로 많은 편</span>
+                      <span>매우 많음</span>
                     </div>
                     <div className="score-buttons">
                       {[1, 2, 3, 4, 5].map(score => (
@@ -1187,13 +1197,6 @@ function App() {
                           {score}
                         </button>
                       ))}
-                    </div>
-                    <div className="score-descriptions">
-                      <span>매우 적음</span>
-                      <span>대체로 적은 편</span>
-                      <span>보통 정도</span>
-                      <span>대체로 많은 편</span>
-                      <span>매우 많음</span>
                     </div>
                   </div>
                 ))}
@@ -1237,7 +1240,9 @@ function App() {
                     <h3>{question}</h3>
                     <div className="score-labels">
                       <span>전혀 그렇지 않다</span>
+                      <span>그렇지 않다</span>
                       <span>보통이다</span>
+                      <span>그렇다</span>
                       <span>매우 그렇다</span>
                     </div>
                     <div className="score-buttons">
@@ -1331,10 +1336,12 @@ function App() {
                 {[...questions.q1, ...questions.q2].map((question, index) => (
                   <div key={index} className="competency-question">
                     <h3>{question}</h3>
-                    <div className="score-labels">
-                      <span>전혀 그렇지 않다</span>
-                      <span>보통이다</span>
-                      <span>매우 그렇다</span>
+                    <div className="score-labels" >
+                      <span style={{ textAlign: 'center' }}>전혀 그렇지 않다</span>
+                      <span style={{ textAlign: 'center' }}>그렇지 않은 편이다</span>
+                      <span style={{ textAlign: 'center' }}>보통이다</span>
+                      <span style={{ textAlign: 'center' }}>그런 편이다</span>
+                      <span style={{ textAlign: 'center' }}>매우 그렇다</span>
                     </div>
                     <div className="score-buttons">
                       {[1, 2, 3, 4, 5].map(score => (
