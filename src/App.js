@@ -331,8 +331,7 @@ function App() {
   };
 
   const checkAllConsents = () => {
-    return Object.values(consents).every(consent => consent !== null) && 
-           Object.values(consents).every(consent => consent === true);
+    return Object.values(consents).every(consent => consent !== null) && Object.values(consents).every(consent => consent === true);
   };
 
   const handleScreeningChange = (field, value) => {
@@ -350,6 +349,60 @@ function App() {
         return [...prev, date];
       }
     });
+  };
+
+  const handleSubmitSurvey = async () => {
+    const surveyData = {
+      personalInfo,
+      competencyScores,
+      responses,
+      additionalResponses,
+      expectationResponses,
+      finalResponses,
+      additionalProgram,
+      selectedDates,
+      alternativeDate,
+      contactEmail,
+      submittedAt: new Date().toISOString()
+    };
+
+    try {
+      const response = await fetch(process.env.REACT_APP_CLOUD_FUNCTION_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(surveyData)
+      });
+
+      if (!response.ok) {
+        throw new Error('설문 제출 실패');
+      }
+
+      setCurrentPage('surveyComplete');
+    } catch (error) {
+      console.error('Error:', error);
+      alert('설문 제출 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+    }
+  };
+
+  // 1. 면담 참여 여부와 관계없이 데이터를 전송하는 새로운 함수
+  const handleSurveyComplete = async () => {
+    await handleSubmitSurvey();  // 데이터 전송
+  };
+
+  // 면담 참여자의 최종 제출
+  const handleInterviewSubmit = async () => {
+    if (selectedDates.length === 0 && !alternativeDate) {
+      alert('참석 가능한 날짜를 선택하거나 대체 일정을 제안해주세요.');
+      return;
+    }
+    if (!contactEmail) {
+      alert('연락 가능한 이메일 주소를 입력해주세요.');
+      return;
+    }
+    
+    await handleSubmitSurvey();
   };
 
   const renderPage = () => {
@@ -1203,7 +1256,7 @@ function App() {
 
                 <button 
                   className="start-survey-button"
-                  onClick={handleFinalSubmit}
+                  onClick={handleSurveyComplete}
                 >
                   제출하기
                 </button>
@@ -1242,17 +1295,11 @@ function App() {
                 <div className="interview-buttons">
                   <button
                     className={`demo-button ${wantInterview === true ? 'selected' : ''}`}
-                    onClick={() => {
-                      setWantInterview(true);
-                      setCurrentPage('additionalSurvey');
-                    }}
+                    onClick={() => handleInterviewChoice(true)}
                   >네</button>
                   <button
                     className={`demo-button ${wantInterview === false ? 'selected' : ''}`}
-                    onClick={() => {
-                      setWantInterview(false);
-                      setCurrentPage('surveyComplete');
-                    }}
+                    onClick={() => handleInterviewChoice(false)}
                   >아니요</button>
                 </div>
               </div>
@@ -1576,17 +1623,7 @@ function App() {
 
               <button 
                 className="start-survey-button"
-                onClick={() => {
-                  if (selectedDates.length === 0 && !alternativeDate) {
-                    alert('참석 가능한 날짜를 선택하거나 대체 일정을 제안해주세요.');
-                    return;
-                  }
-                  if (!contactEmail) {
-                    alert('연락 가능한 이메일 주소를 입력해주세요.');
-                    return;
-                  }
-                  setCurrentPage('surveyComplete');
-                }}
+                onClick={handleInterviewSubmit}
               >
                 제출하기
               </button>
@@ -1606,6 +1643,16 @@ function App() {
         );
       default:
         return null;
+    }
+  };
+
+  // 면담 참여자의 최종 제출
+  const handleInterviewChoice = (wantToParticipate) => {
+    setWantInterview(wantToParticipate);
+    if (wantToParticipate) {
+      setCurrentPage('additionalSurvey');
+    } else {
+      handleSubmitSurvey(); // 면담 참여하지 않을 경우 바로 데이터 전송
     }
   };
 
