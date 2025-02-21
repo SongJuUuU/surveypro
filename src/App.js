@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import axios from 'axios';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('welcome');
@@ -45,6 +46,25 @@ function App() {
       ...prev,
       [field]: value
     }));
+  };
+
+  // 데이터 제출 함수 추가
+  const submitData = async () => {
+    try {
+      const response = await axios.post(process.env.REACT_APP_CLOUD_FUNCTION_URL, {
+        consents: consents,
+        personalInfo: personalInfo
+      });
+
+      if (response.status === 200) {
+        setCurrentPage('completion');
+      } else {
+        throw new Error('데이터 제출에 실패했습니다.');
+      }
+    } catch (error) {
+      console.error('Error submitting data:', error);
+      alert('데이터 제출 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+    }
   };
 
   const renderPage = () => {
@@ -820,7 +840,7 @@ function App() {
                     이전
                   </button>
                   <button 
-                    onClick={() => {
+                    onClick={async () => {
                       const { name, phone, email, schedules } = personalInfo;
                       if (!name || !phone || !email) {
                         alert('이름, 전화번호, 이메일을 모두 입력해주세요.');
@@ -833,7 +853,7 @@ function App() {
                         return;
                       }
 
-                      setCurrentPage('completion');
+                      await submitData();
                     }}
                     style={{
                       padding: '12px 30px',
