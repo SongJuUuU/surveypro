@@ -51,6 +51,11 @@ function App() {
   // 데이터 제출 함수 추가
   const submitData = async () => {
     try {
+      console.log('Submitting data:', {
+        consents: consents,
+        personalInfo: personalInfo
+      });
+      
       const response = await axios.post(process.env.REACT_APP_CLOUD_FUNCTION_URL, {
         consents: consents,
         personalInfo: personalInfo
